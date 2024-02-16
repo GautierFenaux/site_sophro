@@ -8,29 +8,39 @@ const menu1 = document.querySelector('.menu1 div');
 const menu2Label = document.querySelector('.menu2');
 const menu2 = document.querySelector('.menu2 div');
 // Ferme et ouvre le menu correspondant
+
+
 menu1Label.addEventListener('click', () => {
     
 
     if(menu1.style.height === '0px' && menu2.style.height === '300px') {
-        menu1.style.height = '300px'
+        menu1.style.height = '220px'
         menu2.style.height = '0px'
     } else if (menu1.style.height === '0px') {
-        menu1.style.height = '300px'
+        menu1.style.height = '220px'
+        header.style.height = (header.offsetHeight + 300) + 'px'
     } else {
         menu1.style.height = '0px'
+        header.style.height = 100 + 'vh'
     }
      
 
 })
 
+console.log(header.offsetHeight)
+
+
+
 menu2Label.addEventListener('click', () => {
-    if(menu2.style.height === '0px' && menu1.style.height === '300px') {
+    if(menu2.style.height === '0px' && menu1.style.height === '220px') {
         menu2.style.height = '300px'
         menu1.style.height = '0px'
     } else if (menu2.style.height === '0px') {
         menu2.style.height = '300px'
+        header.style.height = (header.offsetHeight + 400) + 'px'
     }else {
         menu2.style.height = '0px'
+        header.style.height = 100 + 'vh'
     }
 })
 
@@ -41,7 +51,7 @@ burgerMenu.addEventListener('click', () => {
     if(burgerMenu.classList.contains('menu-open')) {
         ulMenu.style.transition = '0.8s ease-in-out';
     } else {
-        ulMenu.style.transition = '.1s ease-in-out';
+        ulMenu.style.transition = '.01s ease-in-out';
     }
     
 })
@@ -49,7 +59,6 @@ burgerMenu.addEventListener('click', () => {
 
 
 burgerMenu.addEventListener('click', () => {
-    
     header.classList.toggle('active')
 })
 

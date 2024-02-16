@@ -4,30 +4,44 @@
     margin: 0;
     padding: 0;
 }
-
+:root {
+  --main-text-color: #242421;
+  --hover-text-color: #993d1e;
+  --background-color: #F0E9E9;
+}
 html { 
     font-size: 18px;
     color: #242421; 
 }
 
 body {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.6;
   background: #dedeb9;
   overflow-x: hidden;
+  color: var(--main-text-color);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 li {
   list-style-type: none;
-  padding: 15px;
-  color: white;
+  color: var(--main-text-color);
   font-size: 1.2em;
 }
 
+li:hover {
+  color: var(--hover-text-color);
+}
+
 a {
-  color: white;
+  color: var(--main-text-color);
   font-variant: small-caps;
-  margin: 0;
+  display: block;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-text-color);
 }
 
 header {
@@ -42,9 +56,9 @@ header {
 }
 
 .header.active:before {
-  background: rgba(255, 255, 255, 0.19);
+  background: rgba(240, 233, 233, 0.75);
   backdrop-filter: blur(6.5px);
-  height: 100vh;
+  height: 100%;
   width: 100%;
   transition: 1s;
   z-index: 1;
@@ -83,7 +97,7 @@ header {
   left: 50px;
   width: 30px;
   height: 2px;
-  background: #242421;
+  background-color: var(--main-text-color);
   display: block;
   -webkit-transform-origin: center;
   transform-origin: center;
@@ -99,7 +113,7 @@ header {
   display: block;
   width: 100%;
   height: 100%;
-  background: #242421;
+  background: var(--main-text-color);
 }
 
  .hamburger:before { top: -10px; }
@@ -113,8 +127,6 @@ header {
   background-color: #dedeb9 */;
   /* background: rgba(255, 255, 255, 0.19); */
   /* box-shadow: 0 4px 30px 100vw rgba(0, 0, 0, 0.1), 0 4px 30px 100vh rgba(0, 0, 0, 0.1) ;*/
-backdrop-filter: blur(6.5px);
-  -webkit-backdrop-filter: blur(6.5px);
 }
 
 input:checked + .menu .hamburger {
@@ -149,13 +161,6 @@ div.menu-list {
   /* Additional styling for child elements if needed */
 }
 
-a {
-  margin-bottom: 1em;
-  display: block;
-  text-decoration: none;
-  
-}
-
 h1 {
   position: absolute;
   top: 50%;
@@ -182,14 +187,18 @@ h1 {
 
 
 nav {
-margin : 45px 0; 
-display: flex;
-flex-direction: column;
+  margin-top: 18%;
+  display: flex;
+  flex-direction: column;
 }
 
+.menu-list > * {
+  margin: 45px 30px;
+}
+
+
 .span {
-padding : 15px;
-color : white;
+color : black;
 font-size : 1.2em;
 font-variant : small-caps;
 cursor : pointer;
@@ -211,12 +220,16 @@ display: block;
   overflow: hidden;
   text-align: center;
   transition: height .4s ease;
-  background-color: aquamarine;
+  
 }
 
 .slide li {
-  padding : 30px;
+  padding :  30px 10px;
+  a {
+    text-align: initial;
+  }
 }
+
 
 .logo {
 width: 33.33%;
