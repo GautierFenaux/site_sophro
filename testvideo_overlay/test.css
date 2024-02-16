@@ -1,0 +1,57 @@
+ *, *:before, *:after 
+{ 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+html { 
+    font-size: 18px;
+    color: #242421; 
+}
+
+body {
+  font-size: 1.2em;
+  line-height: 1.6;
+  background: #dedeb9;
+  overflow-x: hidden;
+}
+
+header {
+  position: relative;
+  height: 100vh;
+}
+
+
+.header:before{
+  content: '';
+  position: absolute;
+}
+
+.header.active:before {
+  background: rgba(255, 255, 255, 0.19);
+  backdrop-filter: blur(6.5px);
+  height: 100vh;
+  width: 100%;
+  transition: 1s;
+  
+}
+
+video {
+  
+  width: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: -1;
+  display: block;
+  height: 100%;
+}
+
+button {
+  position: absolute;
+  width: 45px;
+  height: 30px;
+  z-index: 9999;
+}
+
