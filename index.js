@@ -64,8 +64,6 @@ function toggleSubMenu(menuItemHasChildren, subMenuToOpen, header, event) {
 }
 
 
-
-
 // Centre la nav une fois au chargement de la fenêtre
 const lastChild = header.lastElementChild;
 const parentRect = header.getBoundingClientRect();
@@ -77,7 +75,7 @@ const totalDistance = document.querySelector('nav').getBoundingClientRect().top 
 document.querySelector('nav').style.margin = `${Math.round(totalDistance / 2)}px 0`
 document.querySelector('nav').style.position = 'absolute'
 document.querySelector('nav').style.top = 0
-
+ 
 
 
 
