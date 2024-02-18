@@ -1,51 +1,17 @@
-/* const firstDropdown = document.querySelector('.menu-list li:first-child') ;
-const firstDropdownList = document.querySelector('.menu-list li:first-child ul') ; */
+
 const burgerMenu = document.querySelector('.menu');
 const ulMenu = document.querySelector('div.menu-list');
 const header = document.querySelector('header');
-const menu1Label = document.querySelector('.menu1');
-const menu1 = document.querySelector('.menu1 div');
-const menu2Label = document.querySelector('.menu2');
-const menu2 = document.querySelector('.menu2 div');
+const menuHasSubMenu = document.querySelectorAll('.menu-item-has-children');
 // Ferme et ouvre le menu correspondant
 
-
-menu1Label.addEventListener('click', () => {
-    
-
-    if(menu1.style.height === '0px' && menu2.style.height === '300px') {
-        menu1.style.height = '220px'
-        menu2.style.height = '0px'
-    } else if (menu1.style.height === '0px') {
-        menu1.style.height = '220px'
-        header.style.height = (header.offsetHeight + 300) + 'px'
-    } else {
-        menu1.style.height = '0px'
-        header.style.height = 100 + 'vh'
-    }
-     
-
+Array.prototype.slice.call(menuHasSubMenu).forEach((menu) => {
+    menu.addEventListener('click', (e) => {
+        toggleSubMenu(menu, '.slide', header, e)
+    })
 })
 
-console.log(header.offsetHeight)
-
-
-
-menu2Label.addEventListener('click', () => {
-    if(menu2.style.height === '0px' && menu1.style.height === '220px') {
-        menu2.style.height = '300px'
-        menu1.style.height = '0px'
-    } else if (menu2.style.height === '0px') {
-        menu2.style.height = '300px'
-        header.style.height = (header.offsetHeight + 400) + 'px'
-    }else {
-        menu2.style.height = '0px'
-        header.style.height = 100 + 'vh'
-    }
-})
-
-
-burgerMenu.addEventListener('click', () => {
+burgerMenu.addEventListener('click', (e) => {
     burgerMenu.classList.toggle('menu-open');
     ulMenu.style.opacity == 0 ? ulMenu.style.opacity = 1 : ulMenu.style.opacity = 0;
     if(burgerMenu.classList.contains('menu-open')) {
@@ -53,14 +19,87 @@ burgerMenu.addEventListener('click', () => {
     } else {
         ulMenu.style.transition = '.01s ease-in-out';
     }
+    header.classList.toggle('active')
+    // Si les menus sont ouverts à la fermeture du header alors on ferme également les menus
+        Array.prototype.slice.call(menuHasSubMenu).forEach((menu) => {
+            if(menu.classList.contains('active-sub')) {
+                toggleSubMenu(menu, '.slide', header,e)
+            }
+        })
     
 })
 
+// La fonction rajoute un flag à l'élément cliqué, si l'élément cliqué ne contient pas le flag alors on ouvre le sous-menu
+// A l'inverse si il contient le flag on enlève les attributs au sous-menu et le flag
+// Resize le header (peut être séparer cette fonction)
+function toggleSubMenu(menuItemHasChildren, subMenuToOpen, header, event) {
 
 
-burgerMenu.addEventListener('click', () => {
-    header.classList.toggle('active')
-})
+    const flag = 'active-sub' ;
+    const subMenu =  menuItemHasChildren.querySelector(subMenuToOpen);
+    // Permet de fermer tous les éléments qui sont ouverts
+    for(let j = 0; j <= menuHasSubMenu.length; j++) {
+        if(typeof menuHasSubMenu[j] !== 'undefined' && menuHasSubMenu[j] !== menuItemHasChildren) {
+        if(menuHasSubMenu[j].classList.contains('active-sub')) {
+                toggleSubMenu(menuHasSubMenu[j], '.slide', header, event)
+            }
+        }
+    }
+
+    if(!menuItemHasChildren.classList.contains(flag)) {
+        menuItemHasChildren.classList.add(flag);
+        subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+        header.style.height = header.offsetHeight + subMenu.scrollHeight + 'px';
+    } else {
+        menuItemHasChildren.querySelector(subMenuToOpen).removeAttribute("style");
+        menuItemHasChildren.classList.remove(flag);
+        if(event.target.parentNode === menuItemHasChildren) {
+            setTimeout(() => {
+                header.style.height = 100 + 'vh';
+            }, 175);
+        } else {
+            header.style.height = 100 + 'vh';
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

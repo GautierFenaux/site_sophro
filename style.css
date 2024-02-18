@@ -8,25 +8,30 @@
   --main-text-color: #242421;
   --hover-text-color: #993d1e;
   --background-color: #F0E9E9;
+  --secondary-color:#e9b8a7;
 }
+
 html { 
     font-size: 18px;
     color: #242421; 
 }
 
 body {
-  font-size: 1em;
   line-height: 1.6;
-  background: #dedeb9;
+  background: var(--background-color);
   overflow-x: hidden;
   color: var(--main-text-color);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+  padding: 2rem 2rem;
+}
+
 li {
   list-style-type: none;
-  color: var(--main-text-color);
   font-size: 1.2em;
+  position: relative;
 }
 
 li:hover {
@@ -34,15 +39,55 @@ li:hover {
 }
 
 a {
-  color: var(--main-text-color);
   font-variant: small-caps;
   display: block;
   text-decoration: none;
 }
 
-a:hover {
-  color: var(--hover-text-color);
+h3 {
+  margin-bottom:  0.5rem;
+  font-size: 1.4rem;
 }
+
+a:hover, .span:hover {
+  color: var(--hover-text-color);
+  transition: color 0.2;
+}
+
+/*A garder pour desktop */
+/* a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0.1em;
+	background-color: hotpink;
+	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
+}
+
+a:hover::after,
+a:focus::after {
+	opacity: 1;
+	transform: translate3d(0, 0.2em, 0);
+}
+
+
+li a {
+	overflow: hidden;
+}
+
+li a::after {
+	opacity 1;
+	transform: translate3d(-100%, 0, 0);
+}
+
+li a:hover::after,
+li a:focus::after{
+	transform: translate3d(0, 0, 0);
+} 
+*/
 
 header {
   position: relative;
@@ -72,8 +117,6 @@ header {
   width: 100%;
   object-fit: cover;
 }
-
-
 
 .menu {
   position: absolute;
@@ -120,15 +163,6 @@ header {
 
  .hamburger:after { bottom: -10px; }
 
-
-
-.menu-open {
-  /* box-shadow: 0 4px 30px 100vw #dedeb9, 0 0 0 100vh #dedeb9;
-  background-color: #dedeb9 */;
-  /* background: rgba(255, 255, 255, 0.19); */
-  /* box-shadow: 0 4px 30px 100vw rgba(0, 0, 0, 0.1), 0 4px 30px 100vh rgba(0, 0, 0, 0.1) ;*/
-}
-
 input:checked + .menu .hamburger {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -156,35 +190,10 @@ div.menu-list {
   transition: .25s 0s ease-in-out;
 }
 
-.menu-list > * {
-  position: relative; /* or use position: static; */
-  /* Additional styling for child elements if needed */
-}
-
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 80%;
-  text-align: center;
-}
-
-.menu-list {
-    width: 100%;
-}
-.open-dropdown {
-  height: 100%;
-}
-
-.dropdown ul {
+.menu-list ul {
     overflow: hidden;
-    height: 0;
-    background-color: aqua;
     transition: height .4s ease;
 }
-
 
 nav {
   margin-top: 18%;
@@ -195,7 +204,6 @@ nav {
 .menu-list > * {
   margin: 45px 30px;
 }
-
 
 .span {
 color : black;
@@ -211,16 +219,12 @@ display: block;
   content: "+";
 }
 
-.open-slide {
-  height: 300px;
-}
 .slide {
   width:100%;
-  height: 0px;
+  max-height: 0;
   overflow: hidden;
   text-align: center;
-  transition: height .4s ease;
-  
+  transition: max-height .4s ease;
 }
 
 .slide li {
@@ -230,9 +234,23 @@ display: block;
   }
 }
 
-
 .logo {
 width: 33.33%;
+}
+
+
+/****************************************************************/
+/***************************************************************/
+/************************** APPROACH **************************/
+/*************************************************************/
+/************************************************************/
+
+
+
+
+main h3 span {
+  background-color: var(--secondary-color);
+  padding:0.5rem ;
 }
 
 
