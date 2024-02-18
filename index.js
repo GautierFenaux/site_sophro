@@ -23,7 +23,7 @@ burgerMenu.addEventListener('click', (e) => {
     // Si les menus sont ouverts à la fermeture du header alors on ferme également les menus
         Array.prototype.slice.call(menuHasSubMenu).forEach((menu) => {
             if(menu.classList.contains('active-sub')) {
-                toggleSubMenu(menu, '.slide', header,e)
+                toggleSubMenu(menu, '.slide', header, e)
             }
         })
     
@@ -37,7 +37,7 @@ function toggleSubMenu(menuItemHasChildren, subMenuToOpen, header, event) {
 
     const flag = 'active-sub' ;
     const subMenu =  menuItemHasChildren.querySelector(subMenuToOpen);
-    // Permet de fermer tous les éléments qui sont ouverts
+    // Permet de fermer tous les éléments qui sont ouverts, refactoriser
     for(let j = 0; j <= menuHasSubMenu.length; j++) {
         if(typeof menuHasSubMenu[j] !== 'undefined' && menuHasSubMenu[j] !== menuItemHasChildren) {
         if(menuHasSubMenu[j].classList.contains('active-sub')) {
