@@ -28,16 +28,15 @@ burgerMenu.addEventListener('click', (e) => {
         })
     
 })
-
 // La fonction rajoute un flag à l'élément cliqué, si l'élément cliqué ne contient pas le flag alors on ouvre le sous-menu
 // A l'inverse si il contient le flag on enlève les attributs au sous-menu et le flag
-// Resize le header (peut être séparer cette fonction)
+// Resize le header (peut être séparé de cette fonction)
 function toggleSubMenu(menuItemHasChildren, subMenuToOpen, header, event) {
-
 
     const flag = 'active-sub' ;
     const subMenu =  menuItemHasChildren.querySelector(subMenuToOpen);
-    // Permet de fermer tous les éléments qui sont ouverts, refactoriser
+
+    // Permet de fermer tous les éléments qui sont ouverts, !!!!!refactoriser!!!!!
     for(let j = 0; j <= menuHasSubMenu.length; j++) {
         if(typeof menuHasSubMenu[j] !== 'undefined' && menuHasSubMenu[j] !== menuItemHasChildren) {
         if(menuHasSubMenu[j].classList.contains('active-sub')) {
@@ -63,6 +62,21 @@ function toggleSubMenu(menuItemHasChildren, subMenuToOpen, header, event) {
     }
     
 }
+
+
+
+
+// Centre la nav une fois au chargement de la fenêtre
+const lastChild = header.lastElementChild;
+const parentRect = header.getBoundingClientRect();
+const lastChildRect = lastChild.getBoundingClientRect();
+// Calculate the distance between the bottom edges of the parent and its last child
+const distanceFromBottom = parentRect.bottom - lastChildRect.bottom;
+const totalDistance = document.querySelector('nav').getBoundingClientRect().top + distanceFromBottom
+// Paramètre les marges pour la nav en haut et en bas.
+document.querySelector('nav').style.margin = `${Math.round(totalDistance / 2)}px 0`
+document.querySelector('nav').style.position = 'absolute'
+document.querySelector('nav').style.top = 0
 
 
 
