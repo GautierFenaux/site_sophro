@@ -5,6 +5,7 @@ const header = document.querySelector('header');
 const menuHasSubMenu = document.querySelectorAll('.menu-item-has-children');
 const navMenu = document.querySelector('nav');
 
+// Centre la nav une fois au chargement de la fenêtre
 window.addEventListener("load", () => {
     centerLastElement(navMenu, header);
 });
@@ -22,7 +23,15 @@ Array.prototype.slice.call(menuHasSubMenu).forEach((menu) => {
 
 burgerMenu.addEventListener('click', (e) => {
     burgerMenu.classList.toggle('menu-open');
+
+    if(burgerMenu.classList.contains('menu-open')) {
+        navMenu.style.visibility = 'visible'
+    } else {
+        navMenu.style.visibility = 'hidden'
+    }
+    
     ulMenu.style.opacity == 0 ? ulMenu.style.opacity = 1 : ulMenu.style.opacity = 0;
+
     if(burgerMenu.classList.contains('menu-open')) {
         ulMenu.style.transition = '0.8s ease-in-out';
     } else {
