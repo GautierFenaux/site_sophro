@@ -6,14 +6,10 @@ const menuHasSubMenu = document.querySelectorAll('.menu-item-has-children');
 const navMenu = document.querySelector('nav');
 
 window.addEventListener("load", () => {
-    console.log('oylo')
     centerLastElement(navMenu, header);
 });
 
-
-
 window.addEventListener('resize', () => {
-    // Centre la nav une fois au chargement de la fenêtre
     centerLastElement(navMenu, header);
 })
 
@@ -79,7 +75,7 @@ function toggleSubMenu(menuItemHasChildren, subMenuToOpen, header, event) {
 
 
 
-
+// Obligé d'utiliser un centrage 'manuel' car avec l'automatique en css l'élément se repositionne quand il change de taille
 const centerLastElement = (lastChild, parentElement) => {
     const distanceFromBottom = parentElement.getBoundingClientRect().bottom - parentElement.lastElementChild.getBoundingClientRect().bottom;
     const totalDistance = lastChild.getBoundingClientRect().top + distanceFromBottom

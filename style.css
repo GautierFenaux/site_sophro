@@ -19,7 +19,7 @@ html {
 
 body {
   line-height: 1.6;
-  background: var(--background-color);
+  background: #fff;
   overflow-x: hidden;
   color: var(--main-text-color);
   font-family: Arial, Helvetica, sans-serif;
@@ -243,6 +243,13 @@ width: 33.33%;
 }
 
 
+
+
+
+
+
+
+
 /****************************************************************/
 /***************************************************************/
 /************************** APPROACH **************************/
@@ -258,6 +265,11 @@ main h3 span {
 main .approach h3 span {
   background-color: var(--secondary-color);
 }
+
+.approach {
+  background-color: var(--background-color);
+}
+
 
 
 
@@ -301,6 +313,33 @@ main .container > :first-child {
 .card-wrapper:hover {
   transform: scale(1.03); 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************************************/
+/***********************************************************/
+/************************ SUPPORT *************************/
+/*********************************************************/
+/********************************************************/
+
+
+.support {
+  margin-top: 2rem;
+  .container {
+    background-color: var(--primary-color);
+  }
+}
+
+
 
 
 
