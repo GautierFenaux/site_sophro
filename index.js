@@ -3,7 +3,20 @@ const burgerMenu = document.querySelector('.menu');
 const ulMenu = document.querySelector('div.menu-list');
 const header = document.querySelector('header');
 const menuHasSubMenu = document.querySelectorAll('.menu-item-has-children');
-// Ferme et ouvre le menu correspondant
+const navMenu = document.querySelector('nav');
+
+window.addEventListener("load", () => {
+    console.log('oylo')
+    centerLastElement(navMenu, header);
+});
+
+
+
+window.addEventListener('resize', () => {
+    // Centre la nav une fois au chargement de la fenêtre
+    centerLastElement(navMenu, header);
+})
+
 
 Array.prototype.slice.call(menuHasSubMenu).forEach((menu) => {
     menu.addEventListener('click', (e) => {
@@ -28,6 +41,7 @@ burgerMenu.addEventListener('click', (e) => {
         })
     
 })
+
 // La fonction rajoute un flag à l'élément cliqué, si l'élément cliqué ne contient pas le flag alors on ouvre le sous-menu
 // A l'inverse si il contient le flag on enlève les attributs au sous-menu et le flag
 // Resize le header (peut être séparé de cette fonction)
@@ -64,18 +78,20 @@ function toggleSubMenu(menuItemHasChildren, subMenuToOpen, header, event) {
 }
 
 
-// Centre la nav une fois au chargement de la fenêtre
-const lastChild = header.lastElementChild;
-const parentRect = header.getBoundingClientRect();
-const lastChildRect = lastChild.getBoundingClientRect();
-// Calculate the distance between the bottom edges of the parent and its last child
-const distanceFromBottom = parentRect.bottom - lastChildRect.bottom;
-const totalDistance = document.querySelector('nav').getBoundingClientRect().top + distanceFromBottom
-// Paramètre les marges pour la nav en haut et en bas.
-document.querySelector('nav').style.margin = `${Math.round(totalDistance / 2)}px 0`
-document.querySelector('nav').style.position = 'absolute'
-document.querySelector('nav').style.top = 0
- 
+
+
+const centerLastElement = (lastChild, parentElement) => {
+    const distanceFromBottom = parentElement.getBoundingClientRect().bottom - parentElement.lastElementChild.getBoundingClientRect().bottom;
+    const totalDistance = lastChild.getBoundingClientRect().top + distanceFromBottom
+    lastChild.style.margin = `${Math.round(totalDistance / 2)}px 0`
+    lastChild.style.position = 'absolute'
+    lastChild.style.top = 0
+}
+
+
+
+
+
 
 
 
