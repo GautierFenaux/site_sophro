@@ -95,6 +95,12 @@ const centerLastElement = (lastChild, parentElement) => {
 
 
 
+//Pour attraper un pseudo élément possibilité de lui ajouter une variable et de le récupérer par cette variable
+// Indirectement on peut donc modifier un pseudo élément
+document.documentElement.style.setProperty("--style-title", "78px");
+
+
+
 
 
 
