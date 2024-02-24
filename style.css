@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  line-height: 1.6;
+  line-height: 1.8;
   background: #f8f7f7;
   overflow-x: hidden;
   color: var(--main-text-color);
@@ -28,8 +28,11 @@ body {
 }
 
 .container {
-  padding: 2.8rem 2rem;
-  margin-bottom: 7rem;
+  padding: 2.8rem 2rem 6rem  2rem;
+}
+
+.background-color-wrapper {
+  background-color: var(--primary-color);
 }
 
 li {
@@ -252,48 +255,60 @@ nav {
 /*************************************************************/
 /************************************************************/
 
-main h3 span {
-  padding: 0;
-  border-radius: 5px;
+.approach {
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient(
+      180deg,
+      #f0e9e9  0%,
+      #f0e9e935 100%
+    )
 }
 
-main .testimony h3 span {
-  padding: 0.5rem;
-  background-color: var(--secondary-color);
+
+.approach svg {
+  bottom: 0;
+  height: 100px;
+  z-index: 1;
+  transform: scale(-1,1);
+  display: block;
+  background-repeat: no-repeat;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  left: 0;
+  right: 0;
 }
 
-main .approach .container {
+
+.content-wrapper{
   position: relative;
 }
-main .approach .container .title-wrapper {
+
+
+main .container  .content-wrapper .title-wrapper {
   width: 212px;
 }
-main .approach .container .title-wrapper:before {
+
+main .container  .content-wrapper .title-wrapper:before {
 content: '';
 position: absolute;
-top: 50px;
 width: 36px;
 background: var(--secondary-color);
-height: 50.4px;
-left: 0;
+height: 55.3px;
+left: -36px;
 }
 
-main .approach .container .title-wrapper h3 {
+main .container .content-wrapper .title-wrapper h3 {
   padding: 5px 0px;
   background-color: var(--secondary-color);
   border-radius: 0px 55px 55px 0px
 }
 
-.approach {
-  background-color: var(--background-color);
-  .container {
-    margin-bottom: 0;
-  }
+main .container .content-wrapper p {
+  margin-top: 2rem;
 }
 
-.approach ~ img:first-child {
-  margin-bottom: 6rem;
-}
 
 /************************************************************/
 /***********************************************************/
@@ -338,11 +353,28 @@ main .container > :first-child {
 /********************************************************/
 
 .support {
-  margin-top: 2rem;
   .container {
     background-color: var(--primary-color);
     margin-bottom: 0;
   }
+}
+
+.support svg {
+  
+
+  bottom: 0;
+  height: 100px;
+  z-index: 1;
+  transform: scale(1,1);
+  display: block;
+  background-repeat: no-repeat;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  left: 0;
+  right: 0;
+
+
 }
 
 /************************************************************/
@@ -387,6 +419,9 @@ footer {
   }
 }
 
+
+
+
 .section-color {
   width: 100%;
   height: 450px;
@@ -399,8 +434,7 @@ footer {
     url() !important;
 }
 
-.section-color div:first-child {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmZmZmZmYiPjxwYXRoIGQ9Ik0wIDBzNTczLjA4IDE0MCAxMjgwIDE0MFYweiIvPjwvZz48L3N2Zz4=);
+.section-color svg:first-child {
   background-size: 100% 100px;
   top: 0;
   height: 100px;
@@ -416,8 +450,7 @@ footer {
 }
 
 
-.section-color div:nth-child(3) {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmZmZmZmYiPjxwYXRoIGQ9Ik0wIDE0MGgxMjgwQzU3My4wOCAxNDAgMCAwIDAgMHoiLz48L2c+PC9zdmc+);
+.section-color svg:nth-child(3) {
   background-size: 100% 100px;
   bottom: 0;
   height: 100px;
@@ -430,5 +463,5 @@ footer {
   width: 100%;
   left: 0;
   right: 0;
-}
+} 
 
